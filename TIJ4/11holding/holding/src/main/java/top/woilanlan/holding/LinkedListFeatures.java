@@ -1,0 +1,43 @@
+package top.woilanlan.holding;
+
+import top.woilanlan.typeinfo.pets.Hamster;
+import top.woilanlan.typeinfo.pets.Pet;
+import top.woilanlan.typeinfo.pets.Pets;
+import top.woilanlan.typeinfo.pets.Rat;
+
+import java.util.LinkedList;
+
+/**
+ * LinkedList 实现了基本的List接口，
+ * 但在List的中间插入和移除时比 ArrayList 更高效
+ *
+ * LinkedList 还添加了可以使其用做栈、队列或双端队列的方法
+ */
+public class LinkedListFeatures {
+    public static void show() {
+        LinkedList<Pet> pets =
+                new LinkedList<Pet>(Pets.arrayList(5));
+        System.out.println(pets);
+        // 完全相同
+        System.out.println("pets.getFirst(): " + pets.getFirst());
+        System.out.println("pets.element(): " + pets.element());
+        // 唯一不同的是空列表行为
+        System.out.println("pets.peek(): " + pets.peek());
+        // 相同的;删除并返回第一个元素:
+        System.out.println("pets.remove(): " + pets.remove());
+        System.out.println("pets.removeFirst(): " + pets.removeFirst());
+        // 唯一不同的是空列表行为
+        System.out.println("pets.poll(): " + pets.poll());
+        System.out.println(pets);
+
+        pets.addFirst(new Rat());
+        System.out.println("After addFirst(): " + pets);
+        pets.offer(Pets.randomPet());
+        System.out.println("After offer(): " + pets);
+        pets.add(Pets.randomPet());
+        System.out.println("After add(): " + pets);
+        pets.addLast(new Hamster());
+        System.out.println("After addLast(): " + pets);
+        System.out.println("pets.removeLast(): " + pets.removeLast());
+    }
+}
