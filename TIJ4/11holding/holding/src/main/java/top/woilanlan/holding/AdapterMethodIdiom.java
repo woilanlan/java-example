@@ -35,7 +35,9 @@ class ReversibleArrayList<T> extends ArrayList<T> {
 }
 
 /**
- * 适配器方法 惯用法允许您使用 foreach 使用其他类型的迭代器
+ * 适配器方法 在使用 foreach 时使用其他类型的迭代器
+ * 在默认的前向迭代器基础上，添加反向迭代器的能力
+ * 不能使用覆盖，而是添加了一个能够产生 Iterable 对象的方法
  */
 public class AdapterMethodIdiom {
     public static void show() {

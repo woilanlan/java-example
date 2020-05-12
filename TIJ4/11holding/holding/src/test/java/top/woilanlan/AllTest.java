@@ -172,4 +172,14 @@ public class AllTest {
     public void test33() {
         AdapterMethodIdiom.show();
     }
+
+    @Test
+    public void test34() {
+        MultiIterableClass.show();
+    }
+
+    @Test
+    public void test35() {
+        ModifyingArraysAsList.show();
+    }
 }
