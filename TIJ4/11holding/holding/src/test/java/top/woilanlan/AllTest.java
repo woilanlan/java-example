@@ -97,4 +97,9 @@ public class AllTest {
     public void test18(){
         UniqueWords.show();
     }
+
+    @Test
+    public void test19(){
+        UniqueWordsAlphabetic.show();
+    }
 }
