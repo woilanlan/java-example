@@ -18,23 +18,25 @@ public class LinkedListFeatures {
         LinkedList<Pet> pets =
                 new LinkedList<Pet>(Pets.arrayList(5));
         System.out.println(pets);
-        // 完全相同
+
+        // 返回此 List 中的第一个元素
         System.out.println("pets.getFirst(): " + pets.getFirst());
         System.out.println("pets.element(): " + pets.element());
-        // 唯一不同的是空列表行为
+        // 检索但不删除此 List 的头(第一个元素)。
         System.out.println("pets.peek(): " + pets.peek());
-        // 相同的;删除并返回第一个元素:
+
+        // 检索并删除此 List 的头(第一个元素)
         System.out.println("pets.remove(): " + pets.remove());
         System.out.println("pets.removeFirst(): " + pets.removeFirst());
-        // 唯一不同的是空列表行为
+        // 检索并删除此 List 的头(第一个元素)。如果该 List 为空，则为 null
         System.out.println("pets.poll(): " + pets.poll());
         System.out.println(pets);
 
-        pets.addFirst(new Rat());
+        pets.addFirst(new Rat());   // 将指定的元素插入此 List 的开头
         System.out.println("After addFirst(): " + pets);
-        pets.offer(Pets.randomPet());
+        pets.offer(Pets.randomPet());   // 将指定的元素添加为此列表的末尾(最后一个元素)。
         System.out.println("After offer(): " + pets);
-        pets.add(Pets.randomPet());
+        pets.add(Pets.randomPet());     // 将指定的元素追加到此列表的末尾。
         System.out.println("After add(): " + pets);
         pets.addLast(new Hamster());
         System.out.println("After addLast(): " + pets);
