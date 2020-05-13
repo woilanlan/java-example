@@ -24,4 +24,9 @@ public class AllTest {
     public void test4(){
         LoggingExceptions2.show();
     }
+
+    @Test
+    public void test5(){
+        ExtraFeatures.show();
+    }
 }
