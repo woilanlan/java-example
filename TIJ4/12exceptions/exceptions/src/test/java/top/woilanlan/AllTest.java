@@ -29,4 +29,34 @@ public class AllTest {
     public void test5(){
         ExtraFeatures.show();
     }
+
+    @Test
+    public void test6(){
+        ExceptionMethods.show();
+    }
+
+    @Test
+    public void test7(){
+        WhoCalled.show();
+    }
+
+    @Test
+    public void test8(){
+        Rethrowing.show();
+    }
+
+    @Test
+    public void test9(){
+        RethrowNew.show();
+    }
+
+    @Test
+    public void test10(){
+        DynamicFields.show();
+    }
+
+    @Test
+    public void test11(){
+        NeverCaught.show();
+    }
 }
