@@ -1,36 +1,26 @@
 package top.woilanlan.exceptions;
 
-class BaseballException extends Exception {
-}
+class BaseballException extends Exception {}
 
-class Foul extends BaseballException {
-}
+class Foul extends BaseballException {}
 
-class Strike extends BaseballException {
-}
+class Strike extends BaseballException {}
 
 abstract class Inning {
-    public Inning() throws BaseballException {
-    }
+    public Inning() throws BaseballException {}
 
-    public void event() throws BaseballException {
-        // 实际上不需要抛任何东西
-    }
+    public void event() throws BaseballException {}
 
     public abstract void atBat() throws Strike, Foul;
 
-    public void walk() {
-    } // 抛出没有检查的异常
+    public void walk() {}
 }
 
-class StormException extends Exception {
-}
+class StormException extends Exception {}
 
-class RainedOut extends StormException {
-}
+class RainedOut extends StormException {}
 
-class PopFoul extends Foul {
-}
+class PopFoul extends Foul {}
 
 interface Storm {
     public void event() throws RainedOut;
@@ -38,33 +28,45 @@ interface Storm {
     public void rainHard() throws RainedOut;
 }
 
+
+/**
+ * 异常限制
+ */
 public class StormyInning extends Inning implements Storm {
 
-    // 可以为构造函数添加新的异常，但必须处理基构造函数异常:
-    public StormyInning()
-            throws RainedOut, BaseballException {
+    // 可以为构造函数添加新的异常，但必须处理父类构造函数异常
+    // 构造函数初始化会先调用父类的构造函数
+    public StormyInning() throws BaseballException,RainedOut {
     }
 
-    public StormyInning(String s)
-            throws Foul, BaseballException {
+    public StormyInning(String s) throws BaseballException,Foul {
+        super();
     }
 
-    // 常规方法必须符合基类:
-    //! void walk() throws PopFoul {} //Compile error
+    // 重写父类方法，不能抛出新的异常。
+//    @Override
+//    public void walk() throws PopFoul {
+//        super.walk();
+//    }
 
-    // 接口不能从基类向现有方法添加异常:
-    //public void event() throws RainedOut {}
+    // 实现接口中的方法，但父类有同名的方法，遵守重写父类方法，不能抛出新的异常。
+//    @Override
+//    public void event() throws RainedOut {}
 
-    // 如果这个方法在基类中不存在，这个异常是可以的
+    // 在父类中没有这个方法，可以跑出异常
+    @Override
     public void rainHard() throws RainedOut {
     }
 
-    // 您可以选择不抛出任何异常，即使基本版本抛出:
+    // 可以选择不抛出任何异常
+    @Override
     public void event() {
     }
 
-    // 重写的方法会抛出继承的异常:
+    // 重写的方法，能抛出继承的异常
+    @Override
     public void atBat() throws PopFoul {
+        //throw new PopFoul();
     }
 
     public static void show() {
@@ -78,6 +80,7 @@ public class StormyInning extends Inning implements Storm {
         } catch (BaseballException e) {
             System.out.println("Generic baseball exception");
         }
+
         //  在派生版本中没有抛出 Strike
         try {
             // 如果你向上抛出会发生什么?

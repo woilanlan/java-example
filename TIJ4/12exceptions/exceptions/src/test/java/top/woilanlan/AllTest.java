@@ -99,4 +99,9 @@ public class AllTest {
     public void test19() {
         StormyInning.show();
     }
+
+    @Test
+    public void test20() {
+        Cleanup.show();
+    }
 }
