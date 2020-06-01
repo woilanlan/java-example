@@ -104,4 +104,24 @@ public class AllTest {
     public void test20() {
         Cleanup.show();
     }
+
+    @Test
+    public void test21() {
+        CleanupIdiom.show();
+    }
+
+    @Test
+    public void test22() {
+        Human.show();
+    }
+
+    @Test
+    public void test23() throws Exception {
+        MainException.show();
+    }
+
+    @Test
+    public void test24() throws Exception {
+        TurnOffChecking.show();
+    }
 }
