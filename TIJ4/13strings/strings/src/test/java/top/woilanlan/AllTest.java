@@ -68,4 +68,95 @@ public class AllTest {
     public void test11(){
         DatabaseException.show();
     }
+
+    @Test
+    public void test12(){
+        IntegerMatch.show();
+    }
+
+    @Test
+    public void test13(){
+        Splitting.show();
+    }
+
+    @Test
+    public void test14(){
+        Replacing.show();
+    }
+
+    @Test
+    public void test15(){
+        Rudolph.show();
+    }
+
+    @Test
+    public void test16(){
+        TestRegularExpression.show(new String[]{"abcabcabcdefabc","abc+","(abc)+","(abc){2,}"});
+    }
+
+    @Test
+    public void test17(){
+        Finding.show();
+    }
+
+    @Test
+    public void test18(){
+        Groups.show();
+    }
+
+    @Test
+    public void test19(){
+        StartEnd.show();
+    }
+
+    @Test
+    public void test20(){
+        ReFlags.show();
+    }
+
+    @Test
+    public void test21(){
+        SplitDemo.show();
+    }
+
+    @Test
+    public void test22() throws Exception {
+        TheReplacements.show();
+    }
+
+    @Test
+    public void test23() throws Exception {
+        Resetting.show();
+    }
+
+    @Test
+    public void test24() throws Exception {
+        String path = AllTest.class.getResource("/").getPath();
+        JGrep.show(new String[]{path+"JGrep.java", "\\b[Ssct]\\w+"});
+    }
+
+    @Test
+    public void test25(){
+        SimpleRead.show();
+    }
+
+    @Test
+    public void test26(){
+        BetterRead.show();
+    }
+
+    @Test
+    public void test27(){
+        ScannerDelimiter.show();
+    }
+
+    @Test
+    public void test28(){
+        ThreatAnalyzer.show();
+    }
+
+    @Test
+    public void test29(){
+        ReplacingStringTokenizer.show();
+    }
 }

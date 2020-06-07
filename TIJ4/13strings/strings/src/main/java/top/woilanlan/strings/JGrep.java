@@ -1,0 +1,30 @@
+package top.woilanlan.strings;
+
+import top.woilanlan.util.TextFile;
+
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
+/**
+ * 应用正则表达式在一个文件中进行搜索匹配操作
+ */
+public class JGrep {
+    public static void show(String[] args) throws Exception {
+        if (args.length < 2) {
+            System.out.println("Usage: java JGrep file regex");
+            System.exit(0);
+        }
+        Pattern p = Pattern.compile(args[1]);
+        // Iterate through the lines of the input file:
+        int index = 0, lineNum = 0;
+        Matcher m = p.matcher("");
+        for (String line : new TextFile(args[0])) {
+            m.reset(line);
+            lineNum++;
+            while (m.find())
+                System.out.println(index++ + ": " +
+                        + lineNum + " Line "+
+                        m.group() + ": " + m.start());
+        }
+    }
+}
